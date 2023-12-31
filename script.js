@@ -65,3 +65,11 @@ $(document).ready(function(){
         }
     });
 });
+function toggleLink() {
+    var link = document.getElementById("downloadLink");
+    if (link.style.display === "none") {
+        link.style.display = "block";
+    } else {
+        link.style.display = "none";
+    }
+}
