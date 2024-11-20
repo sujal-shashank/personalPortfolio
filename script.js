@@ -73,3 +73,29 @@ function toggleLink() {
         link.style.display = "none";
     }
 }
+document.getElementById("contactForm").onsubmit = function(event) {
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    if (!email.includes("@") || message.trim() === "") {
+        alert("Please enter a valid email and message.");
+        event.preventDefault();
+    }
+};
+document.getElementById("contactForm").onsubmit = function(event) {
+    event.preventDefault();  // Prevent form submission
+    
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    const formMessage = document.getElementById("formMessage");
+
+    // Simple validation
+    if (!email.includes("@") || message.trim() === "" || name.trim() === "") {
+        formMessage.textContent = "Please complete all fields with valid information.";
+        return;
+    }
+    formMessage.textContent = "Sending message...";
+
+    // Send email using EmailJS or other service (for demonstration, see step 4)
+    sendEmail(name, email, message);
+};
